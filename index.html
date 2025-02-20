@@ -83,7 +83,12 @@
         }
         .ad {
             width: 100%;
-            filter: sepia(1);
+        }
+        .comic {
+            width: 100%;
+        }
+        .comic img {
+            max-width: 100%;
         }
     </style>
 </head>
@@ -102,7 +107,7 @@
             <h1>NEWS IN SHORT</h1>
             <h2 contenteditable="true">Do Shoominions have a Gamba Problem?</h2>
             <p contenteditable="true">Many Shoominions in the Basement play and deal in all manner of Gamba activities. Some say they're determined. When a shoominion is asked to stop their gamba the reaction is hostile and even violent. The Shoominion called Confusion became hostile when they were asked being able to roll the "death" dice concerning the ongoing pandemic.</p>
-            <img class='ad' src="ad.png" alt="Ad">
+            <img class='ad' src="img/ad.png" alt="Ad">
         </div>
         <div class="content">
             <div class="main-article">
@@ -116,9 +121,24 @@
                 </div>
             </div>
         </div>
+        <div class="comic">
+                <img id="comic" src="img/comic.png" alt="Comic"></img>
+            </div>
         <footer>
             The Daily Basement © 1984 | Stay Informed. Stay Safe.
         </footer>
     </div>
+    <div>
+        <h1>Upload a Comic Strip</h1>
+        <input type="file" id="comic-upload" />
+    </div>
+
+    <script>
+        document.getElementById("comic-upload").onchange = function(e) {
+            var file = this.files[0];
+            var url = window.URL.createObjectURL(file);
+            document.getElementById("comic").src = url;
+        }
+    </script>
 </body>
 </html>
